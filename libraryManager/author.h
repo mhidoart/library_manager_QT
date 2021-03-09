@@ -1,13 +1,12 @@
 #ifndef AUTHOR_H
 #define AUTHOR_H
 #include <QString>
-#include <QObject>
 
 #include<QDebug>
 
 class Author
 {
-Q_OBJECT
+
 public:
     Author(int,QString,QString);
     QString toString();

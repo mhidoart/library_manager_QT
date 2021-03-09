@@ -3,11 +3,9 @@
 #include <string>
 #include "author.h"
 #include<QDebug>
-#include <QObject>
 
 class AuthorManager
 {
-    Q_OBJECT
 public:
     AuthorManager(QString source);
     void addAuthor(Author);

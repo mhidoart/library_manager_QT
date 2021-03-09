@@ -13,9 +13,10 @@ MainWindow::MainWindow(QWidget *parent)
     auth.toString();
     AuthorManager am = AuthorManager(":/data/authors.csv");
     am.load();
-    am.deleteAuthor_by_id(0);
+    /*am.deleteAuthor_by_id(0);
     qInfo() << am.getAuthorByName("AMMY DRISS Soufian").toString();
     qInfo() << am.getAuthorById(2).toString();
+    */
     ui->setupUi(this);
 }
 
