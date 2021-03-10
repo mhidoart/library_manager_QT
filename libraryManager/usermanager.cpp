@@ -8,7 +8,7 @@ UserManager::UserManager(QString value)
 
 void UserManager::load()
 {
-    qInfo() << ">>>>start loading authors";
+    qInfo() << ">>>>start loading Users";
 
     QStringList firstColumn;
     QFile f1(source);
@@ -27,7 +27,7 @@ void UserManager::load()
 
     }
     f1.close();
-    qInfo() << ">>>>fin load authors";
+    qInfo() << ">>>>fin load users";
     for(std::vector<User>::iterator it = users.begin(); it != users.end(); ++it) {
       qInfo() <<  it->toString();
      }
@@ -35,7 +35,7 @@ void UserManager::load()
 
 void UserManager::deleteUser_by_id(int id)
 {
-    qInfo() << "deleting author with id : " + QString::number(id);
+    qInfo() << "deleting user with id : " + QString::number(id);
     for(std::vector<User>::iterator it = users.begin(); it != users.end(); ++it) {
       if(  it->getId() == id  ){
          users.erase(it);

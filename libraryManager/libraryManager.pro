@@ -11,6 +11,8 @@ CONFIG += c++11
 SOURCES += \
     author.cpp \
     authormanager.cpp \
+    category.cpp \
+    categorymanager.cpp \
     main.cpp \
     mainwindow.cpp \
     user.cpp \
@@ -19,6 +21,8 @@ SOURCES += \
 HEADERS += \
     author.h \
     authormanager.h \
+    category.h \
+    categorymanager.h \
     mainwindow.h \
     user.h \
     usermanager.h

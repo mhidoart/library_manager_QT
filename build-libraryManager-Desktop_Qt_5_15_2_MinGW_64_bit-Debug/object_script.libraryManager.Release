@@ -1,0 +1,10 @@
+release/author.o
+release/authormanager.o
+release/category.o
+release/categorymanager.o
+release/main.o
+release/mainwindow.o
+release/user.o
+release/usermanager.o
+release/qrc_resources.o
+release/moc_mainwindow.o
