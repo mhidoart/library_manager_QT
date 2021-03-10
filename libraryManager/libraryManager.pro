@@ -12,12 +12,16 @@ SOURCES += \
     author.cpp \
     authormanager.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    user.cpp \
+    usermanager.cpp
 
 HEADERS += \
     author.h \
     authormanager.h \
-    mainwindow.h
+    mainwindow.h \
+    user.h \
+    usermanager.h
 
 FORMS += \
     mainwindow.ui

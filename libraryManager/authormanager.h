@@ -13,8 +13,8 @@ public:
     void deleteAuthor_by_id(int);
     void deleteAuthor(Author);
     bool isAuthorExist(Author);
-    Author getAuthorByName(QString value);
-    Author getAuthorById(int value);
+    Author* getAuthorByName(QString value);
+    Author*  getAuthorById(int value);
 private:
     QString source;
     std::vector<Author> authors;

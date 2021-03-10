@@ -59,25 +59,27 @@ bool AuthorManager::isAuthorExist(Author auth)
     return false;
 }
 
-Author AuthorManager::getAuthorByName(QString value)
+Author* AuthorManager::getAuthorByName(QString value)
 {
     for(std::vector<Author>::iterator it = authors.begin(); it != authors.end(); ++it) {
       if(  it->getFull_name() == value  ){
-          return * it;
+          Author*  auth = new Author(it->getId(),it->getFull_name(),it->getYear_born()) ;
+          return auth;
       }
      }
-    return Author(-1,"","");
+    return nullptr;
 
 }
 
-Author AuthorManager::getAuthorById(int value)
+Author* AuthorManager::getAuthorById(int value)
 {
     for(std::vector<Author>::iterator it = authors.begin(); it != authors.end(); ++it) {
       if(  it->getId() == value  ){
-          return * it;
+          Author*  auth = new Author(it->getId(),it->getFull_name(),it->getYear_born()) ;
+          return  auth;
       }
      }
-    return Author(-1,"","");
+    return nullptr;
 
 }
 
