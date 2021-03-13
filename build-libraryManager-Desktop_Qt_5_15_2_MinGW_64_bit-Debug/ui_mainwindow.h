@@ -13,6 +13,9 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDateEdit>
+#include <QtWidgets/QFormLayout>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
@@ -21,6 +24,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -30,14 +34,21 @@ class Ui_MainWindow
 public:
     QAction *actionajouter_auteur;
     QWidget *centralwidget;
+    QGridLayout *gridLayout;
+    QVBoxLayout *verticalLayout_3;
     QTabWidget *tabWidget;
     QWidget *tab;
-    QLabel *label;
+    QFormLayout *formLayout;
+    QHBoxLayout *horizontalLayout_2;
     QLabel *label_2;
-    QLabel *label_3;
-    QLineEdit *add_auth_first_name;
     QLineEdit *add_auth_last_name;
+    QHBoxLayout *horizontalLayout;
+    QLabel *label;
+    QLineEdit *add_auth_first_name;
+    QHBoxLayout *horizontalLayout_3;
+    QLabel *label_3;
     QDateEdit *add_auth_year_born;
+    QHBoxLayout *horizontalLayout_4;
     QPushButton *btn_add_auth;
     QWidget *tab_2;
     QMenuBar *menubar;
@@ -54,36 +65,82 @@ public:
         actionajouter_auteur->setObjectName(QString::fromUtf8("actionajouter_auteur"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        gridLayout = new QGridLayout(centralwidget);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        verticalLayout_3 = new QVBoxLayout();
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         tabWidget = new QTabWidget(centralwidget);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
-        tabWidget->setGeometry(QRect(10, 0, 791, 561));
+        tabWidget->setMouseTracking(false);
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
-        label = new QLabel(tab);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(230, 60, 55, 16));
+        formLayout = new QFormLayout(tab);
+        formLayout->setObjectName(QString::fromUtf8("formLayout"));
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         label_2 = new QLabel(tab);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(230, 90, 55, 16));
-        label_3 = new QLabel(tab);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(230, 120, 131, 16));
-        add_auth_first_name = new QLineEdit(tab);
-        add_auth_first_name->setObjectName(QString::fromUtf8("add_auth_first_name"));
-        add_auth_first_name->setGeometry(QRect(300, 60, 231, 22));
+
+        horizontalLayout_2->addWidget(label_2);
+
         add_auth_last_name = new QLineEdit(tab);
         add_auth_last_name->setObjectName(QString::fromUtf8("add_auth_last_name"));
-        add_auth_last_name->setGeometry(QRect(300, 90, 231, 22));
+
+        horizontalLayout_2->addWidget(add_auth_last_name);
+
+
+        formLayout->setLayout(1, QFormLayout::SpanningRole, horizontalLayout_2);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        label = new QLabel(tab);
+        label->setObjectName(QString::fromUtf8("label"));
+
+        horizontalLayout->addWidget(label);
+
+        add_auth_first_name = new QLineEdit(tab);
+        add_auth_first_name->setObjectName(QString::fromUtf8("add_auth_first_name"));
+
+        horizontalLayout->addWidget(add_auth_first_name);
+
+
+        formLayout->setLayout(2, QFormLayout::SpanningRole, horizontalLayout);
+
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        label_3 = new QLabel(tab);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+
+        horizontalLayout_3->addWidget(label_3);
+
         add_auth_year_born = new QDateEdit(tab);
         add_auth_year_born->setObjectName(QString::fromUtf8("add_auth_year_born"));
-        add_auth_year_born->setGeometry(QRect(370, 120, 91, 22));
+
+        horizontalLayout_3->addWidget(add_auth_year_born);
+
+
+        formLayout->setLayout(0, QFormLayout::SpanningRole, horizontalLayout_3);
+
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
+
+        formLayout->setLayout(3, QFormLayout::LabelRole, horizontalLayout_4);
+
         btn_add_auth = new QPushButton(tab);
         btn_add_auth->setObjectName(QString::fromUtf8("btn_add_auth"));
-        btn_add_auth->setGeometry(QRect(310, 160, 93, 28));
+
+        formLayout->setWidget(3, QFormLayout::FieldRole, btn_add_auth);
+
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QString::fromUtf8("tab_2"));
         tabWidget->addTab(tab_2, QString());
+
+        verticalLayout_3->addWidget(tabWidget);
+
+
+        gridLayout->addLayout(verticalLayout_3, 0, 0, 1, 1);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -103,6 +160,9 @@ public:
 
         retranslateUi(MainWindow);
 
+        tabWidget->setCurrentIndex(0);
+
+
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
 
@@ -110,8 +170,8 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         actionajouter_auteur->setText(QCoreApplication::translate("MainWindow", "ajouter auteur", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", "Nom:", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Prenom :", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "Nom:", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "date de naissance", nullptr));
         btn_add_auth->setText(QCoreApplication::translate("MainWindow", "Ajouter", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("MainWindow", "Ajouter Auteur", nullptr));

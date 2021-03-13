@@ -11,8 +11,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     Author auth =  Author(0,"choubida" ,"28/10/1997");
     auth.toString();
-    AuthorManager am = AuthorManager(":/data/authors.csv");
-    am.load();
+    am = new AuthorManager(":/data/authors.csv");
+    am->load();
     /*am.deleteAuthor_by_id(0);
     qInfo() << am.getAuthorByName("AMMY DRISS Soufian").toString();
     qInfo() << am.getAuthorById(2).toString();
@@ -26,3 +26,10 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+void MainWindow::on_btn_add_auth_clicked()
+{
+    QString s = ui->add_auth_last_name->text() + "  " + ui->add_auth_first_name->text();
+    Author auth =  Author(AuthorManager::nextID,s ,"ui->add_auth_year_born->date().toString()");
+    am->addAuthor(auth);
+}
