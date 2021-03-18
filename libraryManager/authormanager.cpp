@@ -1,16 +1,17 @@
 #include "authormanager.h"
-#include <QFile.h>
+#include <qfile.h>
 
-AuthorManager::AuthorManager(QString value){
-
-    source = value;
-
+AuthorManager::AuthorManager(QString value ){
+        source = value;
+       // f1.setFileName("D:/ENSIIE/S4/LOA/PROJET/library_manager_QT/libraryManager/authors.csv");
+        f1.setFileName(source);
 }
+
 void AuthorManager::addAuthor(Author auth)
 {
     if(!isAuthorExist(auth)){
         authors.push_back(auth);
-        append_csv(auth);
+       // append_csv(auth);
         nextID ++;
     }
 }
@@ -18,9 +19,9 @@ void AuthorManager::addAuthor(Author auth)
 void AuthorManager::load()
 {
     qInfo() << ">>>>start loading authors";
-
+   //QFile f1(source);
     QStringList firstColumn;
-    QFile f1(source);
+
     f1.open(QIODevice::ReadOnly);
     QTextStream s1(&f1);
     while (!s1.atEnd()){
@@ -40,21 +41,20 @@ void AuthorManager::load()
 }
 
 void AuthorManager::append_csv(Author auth){
-    QFile data("C:/authors.csv");
 
+    //QFile data(source);
 
-    if(data.open(QIODevice::ReadWrite| QIODevice::Append)){
-
-        QTextStream out(&data);
+    if(f1.open(QIODevice::ReadWrite | QIODevice::Append)){
+        QTextStream out(&f1);
         out << auth.getId() << "," << auth.getFull_name() << "," << auth.getYear_born() << '\n';
         qInfo() << ">>>>AUthor " +  auth.toString() + " Added succesfully";
     }
-    /*
-     * else{
+
+    else{
          qInfo() << "error opning :  "+ source;
     }
-    */
-    data.close();
+
+    f1.close();
     qInfo() << ">>>>AFTER ADDING";
     for(std::vector<Author>::iterator it = authors.begin(); it != authors.end(); ++it) {
         qInfo() <<  it->toString();

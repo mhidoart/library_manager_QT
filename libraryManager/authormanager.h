@@ -3,6 +3,8 @@
 #include <string>
 #include "author.h"
 #include<QDebug>
+#include<QFile>
+
 
 class AuthorManager
 {
@@ -20,7 +22,9 @@ public:
     Author*  getAuthorById(int value);
 private:
     QString source;
+    QFile f1;
     std::vector<Author> authors;
+
 
 };
 
