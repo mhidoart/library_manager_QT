@@ -1,5 +1,7 @@
 <RCC>
     <qresource prefix="/data">
         <file>authors.csv</file>
+        <file>ouvrages.csv</file>
+        <file>user.csv</file>
     </qresource>
 </RCC>
