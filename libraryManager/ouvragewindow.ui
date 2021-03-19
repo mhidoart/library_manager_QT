@@ -143,7 +143,7 @@
            <string>Auteurs :</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit">
+         <widget class="QLineEdit" name="add_isbn">
           <property name="geometry">
            <rect>
             <x>110</x>
@@ -153,7 +153,7 @@
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_2">
+         <widget class="QLineEdit" name="add_title">
           <property name="geometry">
            <rect>
             <x>110</x>
@@ -163,7 +163,7 @@
            </rect>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_3">
+         <widget class="QLineEdit" name="add_abstract">
           <property name="geometry">
            <rect>
             <x>110</x>
@@ -218,7 +218,7 @@
            <rect>
             <x>100</x>
             <y>330</y>
-            <width>181</width>
+            <width>281</width>
             <height>111</height>
            </rect>
           </property>
@@ -234,6 +234,19 @@
           </property>
           <property name="text">
            <string>Ajouter Ouvrage</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_5">
+          <property name="geometry">
+           <rect>
+            <x>100</x>
+            <y>440</y>
+            <width>281</width>
+            <height>24</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Ajouter Auteur</string>
           </property>
          </widget>
         </widget>

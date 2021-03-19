@@ -2,11 +2,17 @@ debug/author.o
 debug/authormanager.o
 debug/category.o
 debug/categorymanager.o
+debug/loginwindow.o
 debug/main.o
 debug/mainwindow.o
 debug/ouvrage.o
 debug/ouvragemanager.o
+debug/ouvragewindow.o
 debug/user.o
 debug/usermanager.o
+debug/userwindow.o
 debug/qrc_resources.o
+debug/moc_loginwindow.o
 debug/moc_mainwindow.o
+debug/moc_ouvragewindow.o
+debug/moc_userwindow.o

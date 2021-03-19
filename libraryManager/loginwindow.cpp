@@ -15,7 +15,7 @@ LoginWindow::~LoginWindow()
 
 void LoginWindow::on_pushButton_clicked()
 {
-    if((ui->loginUsername->text()=="Admin") and (ui->loginPwd->text()=="admin123")){
+    if((ui->loginUsername->text()=="admin") and (ui->loginPwd->text()=="admin123")){
         OuvrageWindow* ow = new OuvrageWindow();
         ow->show();
         this->setHidden(true);
