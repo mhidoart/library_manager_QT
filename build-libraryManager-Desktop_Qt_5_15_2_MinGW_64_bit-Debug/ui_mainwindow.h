@@ -52,22 +52,30 @@ public:
     QHBoxLayout *horizontalLayout_4;
     QPushButton *btn_add_auth;
     QWidget *tab_2;
-    QGridLayout *gridLayout_3;
-    QHBoxLayout *horizontalLayout_16;
-    QVBoxLayout *verticalLayout_8;
     QListWidget *listWidget;
-    QVBoxLayout *verticalLayout_7;
     QLabel *label_4;
+    QLabel *label_5;
+    QLabel *label_6;
+    QLineEdit *search_author;
+    QLineEdit *manage_author_lastName;
+    QLineEdit *manage_author_firstName;
+    QLineEdit *manage_author_yearBorn;
+    QPushButton *pushButton;
+    QPushButton *pushButton_2;
     QMenuBar *menubar;
     QMenu *menufile;
-    QMenu *menuservices;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(800, 600);
+        MainWindow->resize(800, 602);
+        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(MainWindow->sizePolicy().hasHeightForWidth());
+        MainWindow->setSizePolicy(sizePolicy);
         actionajouter_auteur = new QAction(MainWindow);
         actionajouter_auteur->setObjectName(QString::fromUtf8("actionajouter_auteur"));
         centralwidget = new QWidget(MainWindow);
@@ -92,6 +100,8 @@ public:
 
         add_auth_last_name = new QLineEdit(tab);
         add_auth_last_name->setObjectName(QString::fromUtf8("add_auth_last_name"));
+        add_auth_last_name->setMaximumSize(QSize(16777215, 16777215));
+        add_auth_last_name->setLayoutDirection(Qt::LeftToRight);
 
         horizontalLayout_2->addWidget(add_auth_last_name);
 
@@ -122,6 +132,7 @@ public:
 
         add_auth_year_born = new QDateEdit(tab);
         add_auth_year_born->setObjectName(QString::fromUtf8("add_auth_year_born"));
+        add_auth_year_born->setLayoutDirection(Qt::LeftToRight);
 
         horizontalLayout_3->addWidget(add_auth_year_born);
 
@@ -143,36 +154,36 @@ public:
         tab_2->setObjectName(QString::fromUtf8("tab_2"));
         tab_2->setMinimumSize(QSize(0, 510));
         tab_2->setMaximumSize(QSize(776, 510));
-        gridLayout_3 = new QGridLayout(tab_2);
-        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
-        horizontalLayout_16 = new QHBoxLayout();
-        horizontalLayout_16->setSpacing(5);
-        horizontalLayout_16->setObjectName(QString::fromUtf8("horizontalLayout_16"));
-        horizontalLayout_16->setSizeConstraint(QLayout::SetNoConstraint);
-        verticalLayout_8 = new QVBoxLayout();
-        verticalLayout_8->setObjectName(QString::fromUtf8("verticalLayout_8"));
         listWidget = new QListWidget(tab_2);
         listWidget->setObjectName(QString::fromUtf8("listWidget"));
-        listWidget->setEnabled(true);
-
-        verticalLayout_8->addWidget(listWidget);
-
-
-        horizontalLayout_16->addLayout(verticalLayout_8);
-
-        verticalLayout_7 = new QVBoxLayout();
-        verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
+        listWidget->setGeometry(QRect(0, 50, 256, 261));
         label_4 = new QLabel(tab_2);
         label_4->setObjectName(QString::fromUtf8("label_4"));
-
-        verticalLayout_7->addWidget(label_4);
-
-
-        horizontalLayout_16->addLayout(verticalLayout_7);
-
-
-        gridLayout_3->addLayout(horizontalLayout_16, 0, 0, 1, 1);
-
+        label_4->setGeometry(QRect(300, 50, 51, 20));
+        label_5 = new QLabel(tab_2);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+        label_5->setGeometry(QRect(300, 94, 47, 20));
+        label_6 = new QLabel(tab_2);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+        label_6->setGeometry(QRect(300, 133, 101, 21));
+        search_author = new QLineEdit(tab_2);
+        search_author->setObjectName(QString::fromUtf8("search_author"));
+        search_author->setGeometry(QRect(0, 20, 251, 21));
+        manage_author_lastName = new QLineEdit(tab_2);
+        manage_author_lastName->setObjectName(QString::fromUtf8("manage_author_lastName"));
+        manage_author_lastName->setGeometry(QRect(410, 50, 191, 21));
+        manage_author_firstName = new QLineEdit(tab_2);
+        manage_author_firstName->setObjectName(QString::fromUtf8("manage_author_firstName"));
+        manage_author_firstName->setGeometry(QRect(410, 90, 191, 21));
+        manage_author_yearBorn = new QLineEdit(tab_2);
+        manage_author_yearBorn->setObjectName(QString::fromUtf8("manage_author_yearBorn"));
+        manage_author_yearBorn->setGeometry(QRect(410, 130, 191, 21));
+        pushButton = new QPushButton(tab_2);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(400, 200, 80, 22));
+        pushButton_2 = new QPushButton(tab_2);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_2->setGeometry(QRect(520, 200, 80, 22));
         tabWidget->addTab(tab_2, QString());
 
         verticalLayout_3->addWidget(tabWidget);
@@ -186,16 +197,12 @@ public:
         menubar->setGeometry(QRect(0, 0, 800, 21));
         menufile = new QMenu(menubar);
         menufile->setObjectName(QString::fromUtf8("menufile"));
-        menuservices = new QMenu(menubar);
-        menuservices->setObjectName(QString::fromUtf8("menuservices"));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
 
         menubar->addAction(menufile->menuAction());
-        menubar->addAction(menuservices->menuAction());
-        menuservices->addAction(actionajouter_auteur);
 
         retranslateUi(MainWindow);
 
@@ -209,15 +216,18 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         actionajouter_auteur->setText(QCoreApplication::translate("MainWindow", "ajouter auteur", nullptr));
-        label_2->setText(QCoreApplication::translate("MainWindow", "Prenom :", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "Pr\303\251nom :", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Nom:", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "date de naissance", nullptr));
         btn_add_auth->setText(QCoreApplication::translate("MainWindow", "Ajouter", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("MainWindow", "Ajouter Auteur", nullptr));
-        label_4->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("MainWindow", "authors", nullptr));
-        menufile->setTitle(QCoreApplication::translate("MainWindow", "file", nullptr));
-        menuservices->setTitle(QCoreApplication::translate("MainWindow", "services", nullptr));
+        label_4->setText(QCoreApplication::translate("MainWindow", "Nom :", nullptr));
+        label_5->setText(QCoreApplication::translate("MainWindow", "Pr\303\251nom :", nullptr));
+        label_6->setText(QCoreApplication::translate("MainWindow", "Date de  naissance :", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainWindow", "Modifier", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("MainWindow", "Supprimer", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("MainWindow", "Lister Auteurs ", nullptr));
+        menufile->setTitle(QCoreApplication::translate("MainWindow", "Menu", nullptr));
     } // retranslateUi
 
 };

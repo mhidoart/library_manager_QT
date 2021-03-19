@@ -14,7 +14,14 @@ MainWindow::MainWindow(QWidget *parent)
     auth.toString();
 
     am = new AuthorManager("D:/library_manager/authors.csv");
+    om = new OuvrageManager("D:/library_manager/ouvrages.csv");
+    Ouvrage o = Ouvrage(-1 ,"23131232131","java8","this is abstract","25/10/1995",30, 0  );
+    o.addAuthor(auth);
+    om->addOuvrage(o);
+     Ouvrage o1 = Ouvrage(-1 ,"99999","phpo","this is abstract","25/10/2000",55, 1  );
+    // om->addOuvrage(o1);
 
+    om->save();
     am->load();
 
     /*am.deleteAuthor_by_id(0);

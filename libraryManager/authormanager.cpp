@@ -76,7 +76,7 @@ void AuthorManager::saveAll()
     if(f1.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text)){
         QTextStream out(&f1);
         for(std::vector<Author>::iterator it = authors.begin(); it != authors.end(); ++it) {
-            out << it->getId() << "," <<  it->getFull_name() << "," << it->getYear_born() ;
+            out << it->getId() << "," <<  it->getFull_name() << "," << it->getYear_born() << '\n';
 
         }
     }

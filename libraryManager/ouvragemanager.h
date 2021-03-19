@@ -1,7 +1,7 @@
 #ifndef OUVRAGEMANAGER_H
 #define OUVRAGEMANAGER_H
 #include "ouvrage.h"
-
+#include <QFile>
 class OuvrageManager
 {
 public:
@@ -21,6 +21,7 @@ public:
 private:
     QString source;
     int nextID;
+    QFile f1;
     std::vector<Ouvrage> ouvrages;
 
 };

@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "authormanager.h"
+#include "ouvragemanager.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -24,5 +25,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
     AuthorManager* am ;
+    OuvrageManager* om;
 };
 #endif // MAINWINDOW_H

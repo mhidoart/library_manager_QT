@@ -1,7 +1,20 @@
 #include "ouvrage.h"
 
-Ouvrage::Ouvrage(int id ,QString isbn,QString title,QString abstract,QString dateRelease,int nbrCopy, int type  )
+Ouvrage::Ouvrage(int identificateur ,QString isbn,QString title,QString abstract,QString dateRelease,int nbrCopy, int type  )
 {
+    if(identificateur == -1){
+    id = getNextID();
+    }else{
+        id = identificateur;
+
+    }
+    setIsbn(isbn);
+    setTitle(title);
+    setAbstract(abstract);
+    setDateRelease(dateRelease);
+    setNbrCopy(nbrCopy);
+    setType(type);
+
 }
 
 QString Ouvrage::toString()
@@ -12,9 +25,8 @@ QString Ouvrage::toString()
 
 void Ouvrage::addAuthor(Author auth)
 {
-   if(!isAuthorExist(auth)){
         authors.push_back(auth);
-   }
+
 }
 
 void Ouvrage::addCategory(QString c)
