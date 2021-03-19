@@ -4,6 +4,8 @@ debug/category.o
 debug/categorymanager.o
 debug/main.o
 debug/mainwindow.o
+debug/ouvrage.o
+debug/ouvragemanager.o
 debug/user.o
 debug/usermanager.o
 debug/qrc_resources.o

@@ -15,6 +15,8 @@ SOURCES += \
     categorymanager.cpp \
     main.cpp \
     mainwindow.cpp \
+    ouvrage.cpp \
+    ouvragemanager.cpp \
     user.cpp \
     usermanager.cpp
 
@@ -24,6 +26,8 @@ HEADERS += \
     category.h \
     categorymanager.h \
     mainwindow.h \
+    ouvrage.h \
+    ouvragemanager.h \
     user.h \
     usermanager.h
 

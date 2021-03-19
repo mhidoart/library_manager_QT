@@ -4,6 +4,8 @@ release/category.o
 release/categorymanager.o
 release/main.o
 release/mainwindow.o
+release/ouvrage.o
+release/ouvragemanager.o
 release/user.o
 release/usermanager.o
 release/qrc_resources.o

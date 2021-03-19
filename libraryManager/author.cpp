@@ -7,8 +7,8 @@ Author:: Author(int id,QString fname,QString year_b)
     setYear_born(year_b);
 }
 QString Author::toString(){
-    return "id: " + QString::number(id) + " Fullname: " + full_name + " Year_Born : " + year_born
-;}
+    return "id: " + QString::number(id) + " Fullname: " + full_name + " Year_Born : " + year_born;
+}
 
 int Author::getId() const
 {
