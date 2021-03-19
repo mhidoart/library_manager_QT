@@ -7,8 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>602</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -35,12 +41,22 @@
             <item>
              <widget class="QLabel" name="label_2">
               <property name="text">
-               <string>Prenom :</string>
+               <string>Prénom :</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="add_auth_last_name"/>
+             <widget class="QLineEdit" name="add_auth_last_name">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -68,7 +84,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QDateEdit" name="add_auth_year_born"/>
+             <widget class="QDateEdit" name="add_auth_year_born">
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -98,42 +118,123 @@
           </size>
          </property>
          <attribute name="title">
-          <string>authors</string>
+          <string>Lister Auteurs </string>
          </attribute>
-         <layout class="QGridLayout" name="gridLayout_3">
-          <item row="0" column="0">
-           <layout class="QHBoxLayout" name="horizontalLayout_16">
-            <property name="spacing">
-             <number>5</number>
-            </property>
-            <property name="sizeConstraint">
-             <enum>QLayout::SetNoConstraint</enum>
-            </property>
-            <item>
-             <layout class="QVBoxLayout" name="verticalLayout_8">
-              <item>
-               <widget class="QListWidget" name="listWidget">
-                <property name="enabled">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item>
-             <layout class="QVBoxLayout" name="verticalLayout_7">
-              <item>
-               <widget class="QLabel" name="label_4">
-                <property name="text">
-                 <string>TextLabel</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-           </layout>
-          </item>
-         </layout>
+         <widget class="QListWidget" name="listWidget">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>50</y>
+            <width>256</width>
+            <height>261</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_4">
+          <property name="geometry">
+           <rect>
+            <x>300</x>
+            <y>50</y>
+            <width>51</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Nom :</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_5">
+          <property name="geometry">
+           <rect>
+            <x>300</x>
+            <y>94</y>
+            <width>47</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Prénom :</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_6">
+          <property name="geometry">
+           <rect>
+            <x>300</x>
+            <y>133</y>
+            <width>101</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Date de  naissance :</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="search_author">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>20</y>
+            <width>251</width>
+            <height>21</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="manage_author_lastName">
+          <property name="geometry">
+           <rect>
+            <x>410</x>
+            <y>50</y>
+            <width>191</width>
+            <height>21</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="manage_author_firstName">
+          <property name="geometry">
+           <rect>
+            <x>410</x>
+            <y>90</y>
+            <width>191</width>
+            <height>21</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="manage_author_yearBorn">
+          <property name="geometry">
+           <rect>
+            <x>410</x>
+            <y>130</y>
+            <width>191</width>
+            <height>21</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton">
+          <property name="geometry">
+           <rect>
+            <x>400</x>
+            <y>200</y>
+            <width>80</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Modifier</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_2">
+          <property name="geometry">
+           <rect>
+            <x>520</x>
+            <y>200</y>
+            <width>80</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Supprimer</string>
+          </property>
+         </widget>
         </widget>
        </widget>
       </item>
@@ -152,17 +253,10 @@
    </property>
    <widget class="QMenu" name="menufile">
     <property name="title">
-     <string>file</string>
+     <string>Menu</string>
     </property>
-   </widget>
-   <widget class="QMenu" name="menuservices">
-    <property name="title">
-     <string>services</string>
-    </property>
-    <addaction name="actionajouter_auteur"/>
    </widget>
    <addaction name="menufile"/>
-   <addaction name="menuservices"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionajouter_auteur">
