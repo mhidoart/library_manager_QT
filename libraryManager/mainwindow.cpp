@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "author.h"
 #include "authormanager.h"
+#include "ouvragewindow.h"
 #include<QDebug>
 
 
@@ -48,4 +49,12 @@ void MainWindow::on_btn_add_auth_clicked()
 void MainWindow::on_tabWidget_currentChanged(int index)
 {
 
+}
+
+void MainWindow::on_actionGestion_des_ouvrages_triggered()
+{
+
+    OuvrageWindow* ow = new OuvrageWindow();
+    ow->show();
+    this->setHidden(true);
 }

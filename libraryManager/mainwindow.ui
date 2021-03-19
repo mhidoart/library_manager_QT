@@ -29,7 +29,7 @@
          <bool>false</bool>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="tab">
          <attribute name="title">
@@ -255,6 +255,9 @@
     <property name="title">
      <string>Menu</string>
     </property>
+    <addaction name="actionGestion_des_auteurs"/>
+    <addaction name="actionGestion_des_ouvrages"/>
+    <addaction name="actionGestion_des_utilisateurs"/>
    </widget>
    <addaction name="menufile"/>
   </widget>
@@ -262,6 +265,21 @@
   <action name="actionajouter_auteur">
    <property name="text">
     <string>ajouter auteur</string>
+   </property>
+  </action>
+  <action name="actionGestion_des_auteurs">
+   <property name="text">
+    <string>Gestion des auteurs</string>
+   </property>
+  </action>
+  <action name="actionGestion_des_ouvrages">
+   <property name="text">
+    <string>Gestion des ouvrages</string>
+   </property>
+  </action>
+  <action name="actionGestion_des_utilisateurs">
+   <property name="text">
+    <string>Gestion des utilisateurs </string>
    </property>
   </action>
  </widget>

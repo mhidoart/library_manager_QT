@@ -22,6 +22,8 @@ private slots:
 
     void on_tabWidget_currentChanged(int index);
 
+    void on_actionGestion_des_ouvrages_triggered();
+
 private:
     Ui::MainWindow *ui;
     AuthorManager* am ;

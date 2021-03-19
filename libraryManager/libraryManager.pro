@@ -17,6 +17,7 @@ SOURCES += \
     mainwindow.cpp \
     ouvrage.cpp \
     ouvragemanager.cpp \
+    ouvragewindow.cpp \
     user.cpp \
     usermanager.cpp
 
@@ -28,11 +29,13 @@ HEADERS += \
     mainwindow.h \
     ouvrage.h \
     ouvragemanager.h \
+    ouvragewindow.h \
     user.h \
     usermanager.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    ouvragewindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
