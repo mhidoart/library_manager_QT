@@ -1,18 +1,20 @@
 #include "categorymanager.h"
 
-categoryManager::categoryManager(QString value)
+CategoryManager::CategoryManager(QString value)
 {
     source = value;
+    f1.setFileName(source);
+    CategoryNextID = 0;
 }
 
-void categoryManager::addCategory(Category c)
+void CategoryManager::addCategory(Category c)
 {
 if(!isCategoryExist(c)){
     categories.push_back(c);
 }
 }
 
-void categoryManager::load()
+void CategoryManager::load()
 {
     qInfo() << ">>>>start loading Categories";
 
@@ -37,7 +39,43 @@ void categoryManager::load()
 
 }
 
-void categoryManager::deleteCategory_by_id(int id)
+void CategoryManager::append_csv(Category c)
+{
+    //QFile data(source);
+
+    if(f1.open(QIODevice::ReadWrite | QIODevice::Append)){
+        QTextStream out(&f1);
+        out << c.getId() << "," << c.getCategory_name() ;
+        qInfo() << ">>>> category " +  c.toString() + " Added succesfully";
+    }
+
+    else{
+         qInfo() << "error opning :  "+ source;
+    }
+
+    f1.close();
+
+}
+
+void CategoryManager::saveAll()
+{
+
+    if(f1.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text)){
+        QTextStream out(&f1);
+        for(std::vector<Category>::iterator it = categories.begin(); it != categories.end(); ++it) {
+            out << it->getId() << "," <<  it->getCategory_name() ;
+
+        }
+    }
+
+    else{
+         qInfo() << "error opning :  "+ source;
+    }
+
+    f1.close();
+}
+
+void CategoryManager::deleteCategory_by_id(int id)
 {
     qInfo() << "deleting Category with id : " + QString::number(id);
     for(std::vector<Category>::iterator it = categories.begin(); it != categories.end(); ++it) {
@@ -45,14 +83,15 @@ void categoryManager::deleteCategory_by_id(int id)
          categories.erase(it);
       }
      }
+    saveAll();
 }
 
-void categoryManager::deleteCategory(Category c)
+void CategoryManager::deleteCategory(Category c)
 {
 deleteCategory_by_id(c.getId());
 }
 
-bool categoryManager::isCategoryExist(Category c)
+bool CategoryManager::isCategoryExist(Category c)
 {
     for(std::vector<Category>::iterator it = categories.begin(); it != categories.end(); ++it) {
       if(  it->getId() == c.getId()  ){
@@ -62,7 +101,7 @@ bool categoryManager::isCategoryExist(Category c)
     return false;
 }
 
-Category *categoryManager::getCategoryByName(QString value)
+Category *CategoryManager::getCategoryByName(QString value)
 {
     for(std::vector<Category>::iterator it = categories.begin(); it != categories.end(); ++it) {
       if(  it->getCategory_name() == value  ){
@@ -73,7 +112,7 @@ Category *categoryManager::getCategoryByName(QString value)
     return nullptr;
 }
 
-Category *categoryManager::getCategoryById(int value)
+Category *CategoryManager::getCategoryById(int value)
 {
     for(std::vector<Category>::iterator it = categories.begin(); it != categories.end(); ++it) {
       if(  it->getId() == value  ){
@@ -82,4 +121,24 @@ Category *categoryManager::getCategoryById(int value)
       }
      }
     return nullptr;
+}
+
+void CategoryManager::printData()
+{
+    qInfo() << ">>>> Printing all Category manager data : ";
+    for(std::vector<Category>::iterator it = categories.begin(); it != categories.end(); ++it) {
+        qInfo() <<  it->toString();
+    }
+}
+
+int CategoryManager::getNextId()
+{
+    for(std::vector<Category>::iterator it = categories.begin(); it != categories.end(); ++it) {
+        if(  it->getId() >= CategoryNextID  ){
+            CategoryNextID = it->getId();
+        }
+    }
+    CategoryNextID ++;// the next free id
+    return CategoryNextID;
+
 }

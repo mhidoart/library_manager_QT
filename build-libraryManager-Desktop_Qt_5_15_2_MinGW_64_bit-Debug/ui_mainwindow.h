@@ -18,6 +18,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
@@ -51,6 +52,12 @@ public:
     QHBoxLayout *horizontalLayout_4;
     QPushButton *btn_add_auth;
     QWidget *tab_2;
+    QGridLayout *gridLayout_3;
+    QHBoxLayout *horizontalLayout_16;
+    QVBoxLayout *verticalLayout_8;
+    QListWidget *listWidget;
+    QVBoxLayout *verticalLayout_7;
+    QLabel *label_4;
     QMenuBar *menubar;
     QMenu *menufile;
     QMenu *menuservices;
@@ -136,6 +143,36 @@ public:
         tab_2->setObjectName(QString::fromUtf8("tab_2"));
         tab_2->setMinimumSize(QSize(0, 510));
         tab_2->setMaximumSize(QSize(776, 510));
+        gridLayout_3 = new QGridLayout(tab_2);
+        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
+        horizontalLayout_16 = new QHBoxLayout();
+        horizontalLayout_16->setSpacing(5);
+        horizontalLayout_16->setObjectName(QString::fromUtf8("horizontalLayout_16"));
+        horizontalLayout_16->setSizeConstraint(QLayout::SetNoConstraint);
+        verticalLayout_8 = new QVBoxLayout();
+        verticalLayout_8->setObjectName(QString::fromUtf8("verticalLayout_8"));
+        listWidget = new QListWidget(tab_2);
+        listWidget->setObjectName(QString::fromUtf8("listWidget"));
+        listWidget->setEnabled(true);
+
+        verticalLayout_8->addWidget(listWidget);
+
+
+        horizontalLayout_16->addLayout(verticalLayout_8);
+
+        verticalLayout_7 = new QVBoxLayout();
+        verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
+        label_4 = new QLabel(tab_2);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+
+        verticalLayout_7->addWidget(label_4);
+
+
+        horizontalLayout_16->addLayout(verticalLayout_7);
+
+
+        gridLayout_3->addLayout(horizontalLayout_16, 0, 0, 1, 1);
+
         tabWidget->addTab(tab_2, QString());
 
         verticalLayout_3->addWidget(tabWidget);
@@ -177,7 +214,8 @@ public:
         label_3->setText(QCoreApplication::translate("MainWindow", "date de naissance", nullptr));
         btn_add_auth->setText(QCoreApplication::translate("MainWindow", "Ajouter", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("MainWindow", "Ajouter Auteur", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("MainWindow", "Tab 2", nullptr));
+        label_4->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("MainWindow", "authors", nullptr));
         menufile->setTitle(QCoreApplication::translate("MainWindow", "file", nullptr));
         menuservices->setTitle(QCoreApplication::translate("MainWindow", "services", nullptr));
     } // retranslateUi
