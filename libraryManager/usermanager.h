@@ -3,6 +3,11 @@
 #include<QDebug>
 #include "user.h"
 
+/**
+ * @file usermanager.h
+ *@author ASSABBANE Mehdi et CHOUBBY Ibtissam
+ * Interface de la classe Usermanager
+ */
 class UserManager
 {
 public:

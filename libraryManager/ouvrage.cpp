@@ -1,5 +1,20 @@
 #include "ouvrage.h"
+/**
+ * @file ouvrage.cpp
+ *@author ASSABBANE Mehdi et CHOUBBY Ibtissam
+ *@brief classe modèle d'ouvrage
 
+/**
+ * Constructeur avec paramètres
+ * @param int c'est le premier argument,c'est l'id de l'ouvrage qui s'incrémente automatiquement
+ * @param isbn c'est le deuxième argument,c'est l'isbn de l'ouvrage
+ * @param title c'est le troisième argument,c'est le titre
+ * @param abstract c'est le quatrième argumet , c'est le résumé de l'ouvrage
+ * @param dateRelase c'est le cinquième argument,c'est la date de sortie de l'ouvrage
+ * @param nbrCopy c'est le sixième argument,c'est le nombre de copies
+ * @param type , si c'est un livre,roman ...etc
+
+ * **/
 Ouvrage::Ouvrage(int identificateur ,QString isbn,QString title,QString abstract,QString dateRelease,int nbrCopy, int type  )
 {
     if(identificateur == -1){
@@ -22,19 +37,29 @@ QString Ouvrage::toString()
     return "id: " + QString::number(id) + " isbn: " + isbn + " title : " + title + " abstract : " + abstract + "dateRelease : " + dateRelease + " nbr-copy : " + QString::number(nbrCopy) + "category" ;
 
 }
-
+/**
+ * Fonction ajouter un auteur pour un ouvrage
+ * @param l'auteur à ajouté
+* **/
 void Ouvrage::addAuthor(Author auth)
 {
         authors.push_back(auth);
 
 }
-
+/**
+ * Fonction ajouter category
+ * @param la categorie
+ *
+* **/
 void Ouvrage::addCategory(QString c)
 {
     categories.push_back(c);
 }
 
-
+/**
+ * Fonction récupérerer l'auteur d'un ouvrage par son nom
+ * @param le nom de l auteur
+* **/
 Author* Ouvrage::getAuthorbyName(QString c)
 {
     for(std::vector<Author>::iterator it = authors.begin(); it != authors.end(); ++it) {

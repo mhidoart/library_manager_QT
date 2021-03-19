@@ -1,5 +1,12 @@
 #include "category.h"
 
+/**
+ * @file category.cpp
+ *@author ASSABBANE Mehdi et CHOUBBY Ibtissam
+ *@brief Classe manager de la classe category
+ */
+
+
 Category::Category(int identificateur,QString category)
 {
     id= identificateur;

@@ -3,7 +3,11 @@
 #include <QString>
 
 #include<QDebug>
-
+/**
+ * @file category.h
+ *@author ASSABBANE Mehdi et CHOUBBY Ibtissam
+ * Interface de la classe Category
+ */
 class Category
 {
 public:

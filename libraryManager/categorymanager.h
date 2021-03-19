@@ -2,7 +2,11 @@
 #define CATEGORYMANAGER_H
 #include "category.h"
 #include <QFile.h>
-
+/**
+ * @file categorymanager.h
+ *@author ASSABBANE Mehdi et CHOUBBY Ibtissam
+ * Interface de la classe categorymanager
+ */
 class CategoryManager
 {
 public:

@@ -3,7 +3,11 @@
 #include <QString>
 
 #include<QDebug>
-
+/**
+ * @file Author.h
+ *@author ASSABBANE Mehdi et CHOUBBY Ibtissam
+ * Interface de la classe Author
+ */
 class Author
 {
 

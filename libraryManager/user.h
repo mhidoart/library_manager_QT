@@ -1,9 +1,12 @@
 #ifndef USER_H
 #define USER_H
-
 #include <QString>
-
 #include<QDebug>
+/**
+ * @file user.h
+ *@author ASSABBANE Mehdi et CHOUBBY Ibtissam
+ * Interface de la classe User
+ */
 class User
 {
 public:

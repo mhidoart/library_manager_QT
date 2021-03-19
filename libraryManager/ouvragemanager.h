@@ -2,6 +2,11 @@
 #define OUVRAGEMANAGER_H
 #include "ouvrage.h"
 #include <QFile>
+/**
+ * @file ouvragemanager.h
+ *@author ASSABBANE Mehdi et CHOUBBY Ibtissam
+ * Interface de la classe ouvragemanager
+ */
 class OuvrageManager
 {
 public:

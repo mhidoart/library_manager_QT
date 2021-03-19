@@ -3,7 +3,11 @@
 #include <QString>
 #include<QDebug>
 #include "author.h"
-
+/**
+ * @file Ouvrage.h
+ *@author ASSABBANE Mehdi et CHOUBBY Ibtissam
+ * Interface de la classe Ouvrage
+ */
 class Ouvrage
 {
 public:

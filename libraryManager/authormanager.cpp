@@ -1,13 +1,28 @@
 #include "authormanager.h"
 #include <qfile.h>
 
+/**
+ * @file authormanager.cpp
+ *@author ASSABBANE Mehdi et CHOUBBY Ibtissam
+ *@brief Classe manager de la classe auteur
+ */
+
+/**
+ * Constructeur avec paramètres
+ * @param value c'est le premier argument,c'est le chemin du fichier csv qu'on va utiliser pour stocker et charger  les données
+ * **/
 AuthorManager::AuthorManager(QString value ){
         source = value;
-       // f1.setFileName("D:/ENSIIE/S4/LOA/PROJET/library_manager_QT/libraryManager/authors.csv");
         f1.setFileName(source);
          nextID = 0;
 }
-
+/**
+ * Fonction pour ajouter un auteur
+ * @param auth de type autheur
+ * @brief on fait un test sur l'id si c'est le premier auteur à ajouté , on lui incrémente
+ * avec la fonction getNextId() et on fait un appel réccursive de la fonction
+ * après on test si l'auteur n'existe pas on l'ajoute dans notre vecteur et au fichier csv
+* **/
 void AuthorManager::addAuthor(Author auth)
 {
     // a new author
@@ -26,7 +41,12 @@ void AuthorManager::addAuthor(Author auth)
     }
 
 }
-
+/**
+ * Fonction pour charger les données du fichier csv
+ * @brief on ouvre notre fichier f1 en mode readOnly ,on teste si on a atteint
+ * la fin du fichier sinon on lis ligne par ligne on crée un autheur
+ * et on l'ajoute en appelant la méthode addAuthor()
+* **/
 void AuthorManager::load()
 {
     qInfo() << ">>>>start loading authors";
@@ -49,7 +69,11 @@ void AuthorManager::load()
         qInfo() <<  it->toString();
     }
 }
-
+/**
+ * Fonction ajouter un auteur dans le fichier csv
+ * @param auth , l'auteur qu'on va ajouter au fichier
+ * @brief on ouvre le fichier on mode append et on ajouter l'auteur
+* **/
 void AuthorManager::append_csv(Author auth){
 
     //QFile data(source);
@@ -70,6 +94,11 @@ void AuthorManager::append_csv(Author auth){
         qInfo() <<  it->toString();
     }
 }
+/**
+ * Fonction pour sauvegarder le vecteur complet dans le fichier csv
+ * @brief on ouvre le fichier en mode ReadWrite , on écrase son contenu
+ * on parcour le vecteur et on ajoute chaque auteur dans le fichier
+* **/
 void AuthorManager::saveAll()
 {
 
@@ -87,7 +116,13 @@ void AuthorManager::saveAll()
 
     f1.close();
 }
-
+/**
+ * Fonction supprimer auteur par id
+ * @param l'id de l'auteur à supprimé
+ * @brief on parcours le vecteur , et on compare les ids des auteurs avec l'id
+ * passé en paramètre
+ * et on met à jour le fichier csv
+* **/
 void AuthorManager::deleteAuthor_by_id(int id)
 {
     qInfo() << "deleting author with id : " + QString::number(id);
@@ -100,12 +135,24 @@ void AuthorManager::deleteAuthor_by_id(int id)
     saveAll();
 
 }
-
+/**
+ * Fonction supprimer auteur
+ * @param l'auteur à supprimé
+ * @brief on réccupère l'id de l'auteur passé en paramètre et on appelle
+ * la fonction delete_author_by_id.
+* **/
 void AuthorManager::deleteAuthor(Author auth)
 {
     deleteAuthor_by_id(auth.getId());
 }
-
+/**
+ * Fonction vérifier l'existance d'un auteur
+ * @param l'auteur à vérifié
+ * @brief on réccupère l'id de l'auteur passé en paramètre et  on parcour le vecteur
+ * et on compare l'id du paramètre avec les id des auteurs s'ils sont
+ * égaux on retourne true , sinon false
+ *@return booléan.
+* **/
 bool AuthorManager::isAuthorExist(Author auth)
 {
     for(std::vector<Author>::iterator it = authors.begin(); it != authors.end(); ++it) {
@@ -115,7 +162,14 @@ bool AuthorManager::isAuthorExist(Author auth)
     }
     return false;
 }
-
+/**
+ * Fonction récupérer un auteur par son nom
+ * @param value,le nom de l'auteur
+ * @brief on parcour le vecteur et on compare la valeur passé en paramètre
+ * avec la variable du vecteur , si ils sont égaux on crée un auteur
+ * et on le retourne l'auteur sinon
+ *@return Autheur .
+* **/
 Author* AuthorManager::getAuthorByName(QString value)
 {
     for(std::vector<Author>::iterator it = authors.begin(); it != authors.end(); ++it) {
@@ -127,7 +181,15 @@ Author* AuthorManager::getAuthorByName(QString value)
     return nullptr;
 
 }
-
+/**
+ * Fonction récupérer un auteur par son ID
+ * @param value,l'id de l'auteur
+ * @brief on parcour le vecteur et on compare la valeur passé en paramètre
+ * avec la variable du vecteur , si ils sont égaux on crée un auteur
+ * et on le retourne l'auteur sinon
+ * on retourn un objet null
+ *@return Auteur .
+* **/
 Author* AuthorManager::getAuthorById(int value)
 {
     for(std::vector<Author>::iterator it = authors.begin(); it != authors.end(); ++it) {
@@ -139,7 +201,12 @@ Author* AuthorManager::getAuthorById(int value)
     return nullptr;
 
 }
-
+/**
+ * Fonction incrémenter l'id
+ * @brief on compare le dernier ID avec l'id du dernier auteur , si ce dernier est plus
+ * grand on affecte à nextId sa valeur et on l'incrément puis on le retourne.
+ *@return nextID .
+* **/
 int AuthorManager::getNextId()
 {
     for(std::vector<Author>::iterator it = authors.begin(); it != authors.end(); ++it) {
